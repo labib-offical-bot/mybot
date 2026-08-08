@@ -110,7 +110,7 @@ const sendChannelsRequiredMessage = async (chatId) => {
         inline_keyboard: [
           [{ text: '📢 Channel 1', url: 'https://t.me/bappimd786' }],
           [{ text: '📢 Channel 2', url: 'https://t.me/labiboffical1' }],
-          [{ text: '👥 Group', url: 'https://whatsapp.com/channel/0029VbCvM3e05MUfSYFVA73f' }],
+          [{ text: '👥 Group', url: 'https://t.me/+u7hcJ96naMQ3M2E1' }],
           [{ text: '✅ I have joined', callback_data: 'check_join' }]
         ]
       }
