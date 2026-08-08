@@ -155,13 +155,13 @@ bot.onText(/\/start/, async (msg) => {
   // Private chat mein normal start message
   await bot.sendPhoto(
     chatId,
-    "https://i.postimg.cc/NMn8rzqh/image1.png",
+    "https://i.postimg.cc/prLDv9rD/IMG-20260801-WA0114.jpg",
     {
       caption: `🪀 *𝐁ᴀᴩᴩɪ xᴍᴅ💀*\n\n╔════════════════════╗\n ⤷ /pair <wa_number>\n ⤷ /unpair <wa_number>\n╚════════════════════╝`,
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
-          [{ text: "👑 Owner", url: "https://t.me/@labibvaiya01" }]
+          [{ text: "👑 Owner", url: "https://t.me/labibvaiya01" }]
         ]
       }
     }
