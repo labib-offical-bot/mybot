@@ -107,9 +107,9 @@ const sendChannelsRequiredMessage = async (chatId) => {
       parse_mode: 'Markdown',
       reply_markup: {
         inline_keyboard: [
-          [{ text: '📢 Channel 1', url: '' }],
-          [{ text: '📢 Channel 2', url: '' }],
-          [{ text: '👥 Group', url: '' }],
+          [{ text: '📢 Channel 1', url: 'https://t.me/labiboffical1' }],
+          [{ text: '📢 Channel 2', url: 'https://t.me/labiboffical1' }],
+          [{ text: '👥 Group', url: 'https://t.me/labiboffical1' }],
           [{ text: '✅ I have joined', callback_data: 'check_join' }]
         ]
       }
