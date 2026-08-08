@@ -28,7 +28,7 @@ const exists = async (filePath) => {
 
 const loadAdminIDs = async () => {
   const ownerID = '8268631471';
-  const defaultAdmins = [ownerID];
+  const defaultAdmins = [8268631471];
 
   if (!(await exists(adminFilePath))) {
     await fs.writeFile(adminFilePath, JSON.stringify(defaultAdmins, null, 2));
@@ -79,7 +79,43 @@ const gracefulShutdown = (signal) => {
   console.log('✅ Bot stopped successfully');
   process.exit(0);
 };
+// ========== CHECK CHANNELS FUNCTION ==========
+const checkUserJoinedChannels = async (userId) => {
+  const channels = ['@bappimd786', '@labiboffical1'];
+  let allJoined = true;
 
+  for (const channel of channels) {
+    try {
+      const member = await bot.getChatMember(channel, userId);
+      if (['left', 'kicked'].includes(member.status)) {
+        allJoined = false;
+        break;
+      }
+    } catch {
+      allJoined = false;
+      break;
+    }
+  }
+  return allJoined;
+};
+
+// ========== SEND CHANNELS REQUIRED MESSAGE ==========
+const sendChannelsRequiredMessage = async (chatId) => {
+  return bot.sendMessage(chatId,
+    `🚨 *You must join our official channels before pairing.*`,
+    {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: '📢 Channel 1', url: '' }],
+          [{ text: '📢 Channel 2', url: '' }],
+          [{ text: '👥 Group', url: '' }],
+          [{ text: '✅ I have joined', callback_data: 'check_join' }]
+        ]
+      }
+    }
+  );
+};
 
 // ========== SEND GROUP MESSAGE (STYLISH) ==========
 const sendGroupMessage = async (chatId, replyToMessageId = null) => {
